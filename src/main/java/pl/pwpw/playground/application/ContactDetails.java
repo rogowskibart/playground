@@ -21,4 +21,7 @@ class ContactDetails {
     @Embedded
     private PhoneNumber phoneNumber;
 
+    public EmailAddress getEmailAddress() {
+        return emailAddress;
+    }
 }

@@ -15,4 +15,12 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 class EmailAddress {
     private String emailAddress;
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
 }

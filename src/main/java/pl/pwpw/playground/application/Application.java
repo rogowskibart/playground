@@ -29,4 +29,8 @@ class Application {
     public ApplicationNumber getApplicationNumber() {
         return applicationNumber;
     }
+
+    public ContactDetails getContactDetails() {
+        return contactDetails;
+    }
 }

@@ -25,7 +25,8 @@ public class ApplicationController {
     }
 
     @GetMapping("/email/{email}")
-    public Application getApplicationByEmail(@RequestParam(value = "email") String email) {
+    public Application getApplicationByEmail(@PathVariable String email) {
+        LOGGER.log(Level.INFO, "Application email is: " + email);
         return applicationService.getApplicationByEmail(email);
     }
 }

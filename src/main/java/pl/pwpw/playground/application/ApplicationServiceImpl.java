@@ -21,7 +21,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         List<Application> list = applicationRepository.findAll();
         Optional<Application> found = Optional.empty();
         for (Application a : list) {
-            if (a.getApplicationNumber().getApplicationNumber().equals(number)) {
+            if (number.equals(a.getApplicationNumber().getApplicationNumber())) {
                 found = Optional.of(a);
                 break;
             }
@@ -32,9 +32,18 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public Application getApplicationByEmail(String email) {
-        String sql = "SELECT * FROM APPLICATION WHERE EMAIL_ADDRESS=?";
-        Application application = jtm.queryForObject(sql, new Object[]{email},
-                new BeanPropertyRowMapper<>(Application.class));
+        Application application = new Application();
+        List<Application> list = applicationRepository.findAll();
+        Optional<Application> found = Optional.empty();
+        for (Application a : list) {
+            if (email.equals(a.getContactDetails().getEmailAddress().getEmailAddress())) {
+                found = Optional.of(a);
+                break;
+            }
+        }
+        if (found.isPresent()) {
+            application = found.get();
+        }
         return application;
     }
 }
