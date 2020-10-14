@@ -33,4 +33,28 @@ class Application {
     public ContactDetails getContactDetails() {
         return contactDetails;
     }
+
+    public void setApplicationNumber(ApplicationNumber applicationNumber) {
+        this.applicationNumber = applicationNumber;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setContactDetails(ContactDetails contactDetails) {
+        this.contactDetails = contactDetails;
+    }
+
+    public ApplicationType getApplicationType() {
+        return applicationType;
+    }
+
+    public void setApplicationType(ApplicationType applicationType) {
+        this.applicationType = applicationType;
+    }
 }

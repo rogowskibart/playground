@@ -24,7 +24,7 @@ public class ApplicationServiceImpl implements ApplicationService {
             }
         }
         if (found.isPresent()) {
-            application = found.get();
+            application.setContactDetails(found.get().getContactDetails());
         }
         return application;
     }
@@ -41,7 +41,9 @@ public class ApplicationServiceImpl implements ApplicationService {
             }
         }
         if (found.isPresent()) {
-            application = found.get();
+            application.setApplicationType(found.get().getApplicationType());
+            application.setApplicationNumber(found.get().getApplicationNumber());
+            application.setLastName(found.get().getLastName());
         }
         return application;
     }
