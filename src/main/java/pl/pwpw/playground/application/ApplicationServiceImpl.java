@@ -1,10 +1,7 @@
 package pl.pwpw.playground.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-import pl.pwpw.playground.application.ApplicationService;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,10 +11,10 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Autowired
     private ApplicationRepository applicationRepository;
-    private JdbcTemplate jtm;
 
     @Override
     public Application getContactByApplicationNumber(String number) {
+        Application application = new Application();
         List<Application> list = applicationRepository.findAll();
         Optional<Application> found = Optional.empty();
         for (Application a : list) {
@@ -26,7 +23,9 @@ public class ApplicationServiceImpl implements ApplicationService {
                 break;
             }
         }
-        Application application = found.get();
+        if (found.isPresent()) {
+            application = found.get();
+        }
         return application;
     }
 
