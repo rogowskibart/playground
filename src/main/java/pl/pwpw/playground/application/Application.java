@@ -1,6 +1,7 @@
 package pl.pwpw.playground.application;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -25,4 +26,7 @@ class Application {
     @Enumerated(EnumType.STRING)
     private ApplicationType applicationType;
 
+    public ApplicationNumber getApplicationNumber() {
+        return applicationNumber;
+    }
 }
