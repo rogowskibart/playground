@@ -95,7 +95,7 @@ public class FileSystemStorageService {
                         "Could not read file: " + filename);
             }
         }
-        catch (MalformedURLException e) {
+        catch (MalformedURLException | FileNotFoundException e) {
             throw new FileNotFoundException("Could not read file: " + filename, e);
         }
     }
